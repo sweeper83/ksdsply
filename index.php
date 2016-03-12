@@ -23,7 +23,7 @@ $result1 = $conn->query($query1);
 if (!$result1) die($conn->error);
 $rows1 = $result1->num_rows;
 
-$query2 = "SELECT * FROM `ksdsply` WHERE line=2";
+$query2 = "SELECT * FROM `ksdsply` WHERE k_pkgline=2";
 $result2 = $conn->query($query2);
 if (!$result2) die($conn->error);
 $rows2 = $result2->num_rows;
@@ -37,13 +37,13 @@ for ($j = 0,$i=0 ; $j < $rows1 && $i<3 ; ++$j)
 	{
 	$result1->data_seek($j);
 	$row = $result1->fetch_array(MYSQLI_ASSOC);
-	if ($row['line']==5){
+	if ($row['k_pkgline']==5){
 		
 		 
-		 echo '<b> לקוח: </b>' . $row['TXT5']. '<br>';
-		 echo '<b> מיקום: </b>' . $row['מיקום']. ' <br> ';
-		 echo '<b> קוד יעד: </b>' . $row['קוד יעד']. ' | ';
-		 echo '<b> הערה </b>' . $row['line']. ' <br><br> ';
+		 echo '<b> לקוח: </b>' . $row['k_name']. '<br>';
+		 echo '<b> מיקום: </b>' . $row['k_place']. ' <br> ';
+		 echo '<b> קוד יעד: </b>' . $row['k_dst']. ' | ';
+		 echo '<b> הערה </b>' . $row['k_pkgline']. ' <br><br> ';
 		 $i++;		
 		 
 	}
@@ -54,13 +54,13 @@ for ($j = 0,$i=0 ; $j < $rows1 && $i<3 ; ++$j)
 	{
 	$result1->data_seek($j);
 	$row = $result1->fetch_array(MYSQLI_ASSOC);
-	if ($row['line']==3){
+	if ($row['k_pkgline']==3){
 		
 		
-		 echo '<b> לקוח: </b>' . $row['TXT5']. '<br>';
-		 echo '<b> מיקום: </b>' . $row['מיקום']. ' <br> ';
-		 echo '<b> קוד יעד: </b>' . $row['קוד יעד']. ' | ';
-		 echo '<b> הערה </b>' . $row['line']. ' <br><br> ';
+		 echo '<b> לקוח: </b>' . $row['k_name']. '<br>';
+		 echo '<b> מיקום: </b>' . $row['k_place']. ' <br> ';
+		 echo '<b> קוד יעד: </b>' . $row['k_dst']. ' | ';
+		 echo '<b> הערה </b>' . $row['k_pkgline']. ' <br><br> ';
 		 $i++;		
 		  
 	}
@@ -71,13 +71,13 @@ for ($j = 0,$i=0 ; $j < $rows1 && $i<3 ; ++$j)
 	{
 	$result1->data_seek($j);
 	$row = $result1->fetch_array(MYSQLI_ASSOC);
-	if ($row['line']==2){
+	if ($row['k_pkgline']==2){
 		
 		
-		 echo '<b> לקוח: </b>' . $row['TXT5']. '<br>';
-		 echo '<b> מיקום: </b>' . $row['מיקום']. ' <br> ';
-		 echo '<b> קוד יעד: </b>' . $row['קוד יעד']. ' | ';
-		 echo '<b> הערה </b>' . $row['line']. ' <br><br> ';
+		 echo '<b> לקוח: </b>' . $row['k_name']. '<br>';
+		 echo '<b> מיקום: </b>' . $row['k_place']. ' <br> ';
+		 echo '<b> קוד יעד: </b>' . $row['k_dst']. ' | ';
+		 echo '<b> הערה </b>' . $row['k_pkgline']. ' <br><br> ';
 		 $i++;		
 		  
 	}
@@ -88,13 +88,13 @@ for ($j = 0,$i=0 ; $j < $rows1 && $i<3 ; ++$j)
 	{
 	$result1->data_seek($j);
 	$row = $result1->fetch_array(MYSQLI_ASSOC);
-	if ($row['line']==1){
+	if ($row['k_pkgline']==1){
 		
 		
-		 echo '<b> לקוח: </b>' . $row['TXT5']. '<br>';
-		 echo '<b> מיקום: </b>' . $row['מיקום']. ' <br> ';
-		 echo '<b> קוד יעד: </b>' . $row['קוד יעד']. ' | ';
-		 echo '<b> הערה </b>' . $row['line']. ' <br><br> ';
+		 echo '<b> לקוח: </b>' . $row['k_name']. '<br>';
+		 echo '<b> מיקום: </b>' . $row['k_place']. ' <br> ';
+		 echo '<b> קוד יעד: </b>' . $row['k_dst']. ' | ';
+		 echo '<b> הערה </b>' . $row['k_pkgline']. ' <br><br> ';
 		 $i++;		
 		  
 	}
