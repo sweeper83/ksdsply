@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="height: 100%;">
+<html style="height: 100%;dir="rtl";">
 <head>
 <style type="text/css">
 
@@ -19,6 +19,7 @@ table {
 	height: 100%;
 	width: 100%;
 	font-size: 40px;
+	font-family: "Arial";
 }
 
 /*
@@ -32,7 +33,7 @@ th {
 
 #cells {
 	padding: 50px;
-	height: 95%;
+	
 	text-align: right;
 }
 #theader {
@@ -49,7 +50,7 @@ th {
 	
 </style>
 </head>
-<body style="height: 100%;">
+<body style="height: 100%;dir="rtl";">
 <?php
 require_once 'login.php';
 $conn = new mysqli($hn, $un, $pw, $db);
@@ -116,7 +117,7 @@ $results[3] = $result4;
 				
 			echo '<td id="cells">';	
 			echo '<b> לקוח: </b>' . $row['k_name']. '<br>';
-			echo '<b> מיקום: </b>' . $row['k_place']. ' <br> ';
+			echo '<span dir="rtl";><b> מיקום: </b>' .$row['k_place']. '<br></span>';
 			echo '<b> קוד יעד: </b>' . $row['k_dst']. '<br>';
 			echo '<marquee behavior="scroll" direction="right"><b> הערה </b></marquee> <br><br> ';
 			echo '</td>';
