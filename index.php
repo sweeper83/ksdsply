@@ -1,39 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html style="height: 100%;">
 <head>
-<style>
+<style type="text/css">
 
 body {
     margin: 0;
     padding: 0;
-}
-div.relative {
-    position: relative;
-	margin: auto;
-	bottom: 150px;
-    font-size: 30px;
+	height: 100%;
 }
 
 table {
 	border-collapse: collapse;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
 	width: 100%;
-	text-align: right
-	
+	font-size: 40px;
 }
 
+/*
 th {
-    height: 100px;
+    
 	background-color:grey;
 	padding: 10px;
 	text-align: center;
 }
+*/
 
-td, tr {
+#cells {
 	padding: 50px;
-	height: 50px;
-	border: 1px solid black;
-	
-	
+	height: 95%;
+	text-align: right;
+}
+#theader {
+	height: 5%;
+	padding: 0;
+	text-align: center;
+	background-color: grey;
 }
 
 	tr:nth-child(odd){background-color: #f2f2f2}
@@ -43,7 +49,7 @@ td, tr {
 	
 </style>
 </head>
-<body>
+<body style="height: 100%;">
 <?php
 require_once 'login.php';
 $conn = new mysqli($hn, $un, $pw, $db);
@@ -87,16 +93,16 @@ $results[3] = $result4;
 ?>
 
 
-<p style="text-align: right;margin-right: 200px;margin-top: 200px;">
+
 <div class="relative">
 <table>
 
-<tr>
-	<th><b> קו 4 </b><br></th>
-	<th><b> קו 3 </b><br></th>
-	<th><b> קו 2 </b><br></th>
-	<th><b> קו 1 </b><br></th>
-</tr>
+
+	<td id="theader"><b> קו 4 </b><br></td>
+	<td id="theader"><b> קו 3 </b><br></td> 
+	<td id="theader"><b> קו 2 </b><br></td>
+	<td id="theader"><b> קו 1 </b><br></td>
+
 
 
 	
@@ -108,11 +114,11 @@ $results[3] = $result4;
 			$results[$i]->data_seek($i);
 			$row = $results[$i]->fetch_array(MYSQLI_ASSOC);
 				
-			echo '<td>';	
+			echo '<td id="cells">';	
 			echo '<b> לקוח: </b>' . $row['k_name']. '<br>';
 			echo '<b> מיקום: </b>' . $row['k_place']. ' <br> ';
 			echo '<b> קוד יעד: </b>' . $row['k_dst']. '<br>';
-			echo '<marquee behavior="scroll" direction="left"><b> הערה </b></marquee><br>' . $row['k_pkgline']. ' <br><br> ';
+			echo '<marquee behavior="scroll" direction="right"><b> הערה </b></marquee> <br><br> ';
 			echo '</td>';
 		}		
 		echo '</tr>';
