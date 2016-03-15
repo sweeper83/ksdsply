@@ -32,17 +32,25 @@ th {
 */
 
 #cells {
-	padding: 50px;
-	
+	padding: 50px;	
 	text-align: right;
 }
 #theader {
 	height: 5%;
 	padding: 0;
 	text-align: center;
-	background-color: grey;
+	background-color: #70ACCA;
 }
 
+#trow0 {
+	background-color: #96C2D8;
+}
+#trow1 {
+	background-color: #BCD8E6;
+}
+#trow2 {
+	background-color: #E2EEF4;
+}
 	tr:nth-child(odd){background-color: #f2f2f2}
 	
 	
@@ -99,10 +107,10 @@ $results[3] = $result4;
 <table>
 
 
-	<td id="theader"><b> קו 4 </b><br></td>
-	<td id="theader"><b> קו 3 </b><br></td> 
-	<td id="theader"><b> קו 2 </b><br></td>
-	<td id="theader"><b> קו 1 </b><br></td>
+	<td id="theader"><b> 4 </b><br></td>
+	<td id="theader"><b> 3 </b><br></td> 
+	<td id="theader"><b> 2 </b><br></td>
+	<td id="theader"><b> 1 </b><br></td>
 
 
 
@@ -110,7 +118,7 @@ $results[3] = $result4;
 	<?
 	for ($j = 0 ; $j<3 ; ++$j)
 	{	
-		echo '<tr>';
+		echo '<tr id="trow'.$j.'">';
 		for ($i = 3; $i>=0; $i--){
 			$results[$i]->data_seek($i);
 			$row = $results[$i]->fetch_array(MYSQLI_ASSOC);
