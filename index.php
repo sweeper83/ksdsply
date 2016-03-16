@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html style="height: 100%;dir="rtl";">
 <head>
 <style type="text/css">
@@ -18,7 +19,7 @@ table {
 	right: 0;
 	height: 100%;
 	width: 100%;
-	font-size: 40px;
+	font-size: 50px;
 	font-family: "Arial";
 }
 
@@ -30,29 +31,42 @@ th {
 	text-align: center;
 }
 */
-
-#cells {
-	padding: 50px;	
-	text-align: right;
+<?php 
+$r=45;
+$g=125;
+$b=166;
+for ($c=0; $c<=11; $c++){
+$r+=19;
+$g+=11;
+$b+=7;
+echo '
+#cells'.$c.' {
+padding: 50px;	
+text-align: right;
+background-color: rgb('.$r.','.$g.','.$b.');
+}';
 }
+?>
+
 #theader {
 	height: 5%;
 	padding: 0;
 	text-align: center;
-	background-color: #70ACCA;
+	background-color: #39799A;
 }
 
+/*
 #trow0 {
-	background-color: #96C2D8;
+	background-color: #5DA1C3;
 }
 #trow1 {
 	background-color: #BCD8E6;
 }
 #trow2 {
-	background-color: #E2EEF4;
+	background-color: #E2EEF4 ;
 }
 	tr:nth-child(odd){background-color: #f2f2f2}
-	
+*/	
 	
 	
 	
@@ -116,19 +130,22 @@ $results[3] = $result4;
 
 	
 	<?
+	$c=0;
 	for ($j = 0 ; $j<3 ; ++$j)
 	{	
 		echo '<tr id="trow'.$j.'">';
 		for ($i = 3; $i>=0; $i--){
 			$results[$i]->data_seek($i);
 			$row = $results[$i]->fetch_array(MYSQLI_ASSOC);
-				
-			echo '<td id="cells">';	
+			
+			
+			echo '<td id="cells'.$c++.'">';	
 			echo '<b> לקוח: </b>' . $row['k_name']. '<br>';
 			echo '<span dir="rtl";><b> מיקום: </b>' .$row['k_place']. '<br></span>';
 			echo '<b> קוד יעד: </b>' . $row['k_dst']. '<br>';
-			echo '<marquee behavior="scroll" direction="right"><b> הערה </b></marquee> <br><br> ';
+			echo '<marquee behavior="scroll" direction="right"><b> :הערה </b>'.$row['k_rmk'].'</marquee> <br><br> ';
 			echo '</td>';
+			
 		}		
 		echo '</tr>';
 	}	
